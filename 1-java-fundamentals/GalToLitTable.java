@@ -7,18 +7,19 @@
 	Call this program "GalToLitTable.java"
 */
 
+// Now refactored to convert inches to meters
 class GalToLitTable {
 	public static void main(String args[]) {
-		double gallons, liters;
+		double inches, meters;
 		int counter;
 
 		counter = 0;
-		for(gallons = 1; gallons <= 100; gallons++) {
-			liters = gallons * 3.7854; // convert to liters
-			System.out.println(gallons + " gallons is " + liters + " liters.");
+		for(inches = 1; inches <= 120; inches++) {
+			meters = inches * 39.37; // convert to liters
+			System.out.println(inches + " inches is " + meters + " meters.");
 
 			counter++; // Increment the line counter with each loop iteration
-			if (counter == 10) {
+			if (counter == 12) {
 				System.out.println();
 				counter = 0; //reset the line counter
 			}
