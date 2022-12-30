@@ -62,107 +62,41 @@ class Help {
     System.out.print("Choose one (q to quit): ");
   }
 
+
   public boolean isValid(int ch) {
-    if (ch < '1' | ch < '7' & ch != 'q') {
+    if (ch < '1' | ch > '7' & ch != 'q') {
       return false;
     } else {
       return true;
     }
   }
+}
 
+class HelpClassDemo {
+  public static void main(String args[])
+    throws java.io.IOException {
+      char choice, ignore; 
+      Help h1pobj = new Help();
 
-  class HelpClassDemo {
-    public static void main(String args[])
-      throws java.io.IOException {
-        char choice, ignore; 
-        Help h1pobj = new Help();
+      for (;;) {
+        do {
+          h1pobj.showMenu();
 
-        for (;;) {
+          choice = (char) System.in.read();
+
           do {
-            h1pobj.showMenu();
+            ignore = (char) System.in.read();
+          } while(ignore != '\n');
+          
+        } while( !h1pobj.isValid(choice) );
 
-            choice = (char) System.in.read();
+        if (choice == 'q') {
+          break;
+        } 
 
-            do {
-              ignore = (char) System.in.read();
-            } while(ignore != '\n');
-          } while( !h1pobj.isValid(choice) );
+        System.out.println("\n");
 
-          if (choice == 'q') {
-            break;
-          } 
-
-          System.out.println("\n");
-
-          h1pobj.helpOn(choice);
-        }
+        h1pobj.helpOn(choice);
       }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
